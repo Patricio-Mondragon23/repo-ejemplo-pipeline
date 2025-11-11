@@ -1,0 +1,22 @@
+# Build outputs
+bin/
+obj/
+AppPackages/
+BundleArtifacts/
+
+# VS
+.vs/
+
+# Pipelines
+TestResults/
+*.trx
+*.coverage*
+coverage.cobertura.xml
+
+# Secrets / paquetes
+*.pfx
+*.snk
+*.msixbundle
+*.appxbundle
+*.appxupload
+*.cer

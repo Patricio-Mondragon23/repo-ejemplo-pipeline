@@ -1,0 +1,15 @@
+<Window x:Class="Avantick.Desktop.Views.CardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Avantick - Tarjeta" Width="420" Height="220" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions><RowDefinition/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="Número de tarjeta"/>
+            <TextBox Text="{Binding CardNumber, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="0,8,0,0" Text="{Binding Result}" FontWeight="Bold"/>
+        </StackPanel>
+        <Button Grid.Row="1" Content="Validar" Padding="8,4" HorizontalAlignment="Right"
+                Click="ValidateClick"/>
+    </Grid>
+</Window>
