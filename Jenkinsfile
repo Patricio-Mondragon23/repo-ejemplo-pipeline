@@ -7,6 +7,7 @@ pipeline {
     }
 
 
+
     triggers {
         // Ejecutar automáticamente cuando se hace push a cualquier rama
         pollSCM('H/5 * * * *') // cada 5 minutos verifica cambios
