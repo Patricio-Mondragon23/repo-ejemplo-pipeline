@@ -13,6 +13,23 @@ pipeline {
     }
 
     stages {
+        stage('Install Dependencies') {
+            steps {
+                echo 'Instalando dependencias básicas (wget, curl, apt-utils)...'
+                // Instalar wget antes de ejecutar el instalador de .NET
+                sh '''
+                    set -e
+                    if command -v apt-get >/dev/null; then
+                        apt-get update -y && apt-get install -y wget curl
+                    elif command -v yum >/dev/null; then
+                        yum install -y wget curl
+                    else
+                        echo "No se detectó un gestor de paquetes compatible (apt-get o yum)"
+                        exit 1
+                    fi
+                '''
+            }
+        }
         stage('Install .NET SDK') {
             steps {
                 echo 'Instalando .NET 9 SDK...'
