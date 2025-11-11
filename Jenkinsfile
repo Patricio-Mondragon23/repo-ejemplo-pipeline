@@ -13,6 +13,19 @@ pipeline {
     }
 
     stages {
+        stage('Install .NET SDK') {
+            steps {
+                echo 'Instalando .NET 9 SDK...'
+                sh '''
+                    set -e
+                    wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+                    chmod +x dotnet-install.sh
+                    ./dotnet-install.sh --channel 9.0 --install-dir $HOME/.dotnet
+                    export PATH=$PATH:$HOME/.dotnet
+                    dotnet --version
+                '''
+            }
+        }
         stage('Setup .NET SDK') {
             steps {
                 echo 'Instalando .NET 9 SDK...'
