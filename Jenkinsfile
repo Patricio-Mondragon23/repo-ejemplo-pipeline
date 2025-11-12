@@ -1,7 +1,7 @@
 pipeline {
     agent{
         docker {
-            image 'mcr.microsoft.com/dotnet/sdk:9.0-windowsservercore-ltsc2022'
+            image 'mcr.microsoft.com/dotnet/sdk:9.0'
             args '-u root' // Ejecuta como root dentro del contenedor
         }
     }
